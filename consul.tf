@@ -1,5 +1,5 @@
 resource "aws_instance" "server" {
-    ami = "${lookup(var.ami, "${var.region}-${var.platform}")}"
+    ami = lookup(var.AMIS, var.region, "")
     instance_type = "${var.instance_type}"
     key_name = "${var.key_name}"
     count = "${var.servers}"
